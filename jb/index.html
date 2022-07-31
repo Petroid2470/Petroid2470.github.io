@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kindle 5.6.5 Jailbreak</title>
+</head>
+
+<body>
+    <div id="warningDiv">
+        <h1 style="text-align:center">Kindle 5.6.5 Jailbreak</h1>
+        <h4 style="text-align:center">Developed by Branch Delay</h4>
+        <h3 style="text-align:center">Factory reset Kindle before continuing!</h3>
+        <h2 style="text-align:center">WARNING</h2>
+        <p> This jailbreak could render your device UNOPERABLE and UNRECOVERABLE. This
+            will void all warranties. Continue AT YOUR OWN RISK. </p>
+        <p> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+            THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+            OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+            ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+            OTHER DEALINGS IN THE SOFTWARE. </p>
+        <div style="text-align:center">
+            <input type="button" value="I Agree" onclick="enableJB()" /> </div>
+    </div>
+    <div id="jbDiv" style="display:none;">
+        <h1 style="text-align:center">Kindle 5.6.5 Jailbreak</h1>
+        <h2 style="text-align:center">Instructions</h2>
+        <h3 style="text-align:center">The steps MUST occur in the following order.</h3>
+        <ol type="1">
+            <li>Press Stage1.</li>
+            <li>Press back after page fails to load.</li>
+            <li>Press Stage2.</li>
+            <li>Read titlebar for next steps.</li>
+            <li>Once the title changes to "Jailbreak succeeded!", you're done.</li>
+        </ol>
+        <p>If the Kindle does not open the home screen and the titlebar does not change to "JB starting..." after pressing Stage2, STOP! Do not continue attempting to execute the jailbreak. It is incompatible with your system.</p>
+        <h1 style="text-align:center"> <a href="http://bbbb80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR80AR00OB00OR00SU00SE9PSB9PSR0pMB80SBcaCPcAOPqAGYcACPyPDReaOPeaFPeaFPeaFPeaFPeaFPeaFPeaFPR0FUS0FUT0FU803R9pCRPP7R6PCBBP3BlP5RHPFUVP3RAP5RFPFUGpFUx0GRx0CRx0CRcaFPcaFPaP7RAP5BqPFE8p4B0PMRGA5X8pGRdQDPORuR0P5BO2UB4PERev7P2p7R0p7R0P5RAAAO8P4BaaOP000QxFR058FBvB0G0bin0sh00mnt0us0jb00M0b8QCz1s9BTz1o9BTQCa129JBRBaCBTz1v9BTz1v9BTz1v9BTz1w9BTaC0119OBaCA169OCjFaCPPz1v9z0r8PPz1v9TPQBIBr0z8bC000">Stage1</a>            </h1>
+        <h1 style="text-align:center"> <a href="jb.html">Stage2</a> </h1>
+    </div>
+    <script type="text/javascript">
+    function enableJB()
+    {
+        document.cookie = "eulaAree";
+        history.go(0);
+    }
+
+    function autorun()
+    {
+        if (document.cookie.indexOf("eulaAree") > -1)
+        {
+            document.getElementById('jbDiv').style.display = "block";
+            document.getElementById('warningDiv').style.display = "none";
+        }
+    }
+    if (document.addEventListener) document.addEventListener("DOMContentLoaded",
+        autorun, false);
+    else if (document.attachEvent) document.attachEvent("onreadystatechange",
+        autorun);
+    else window.onload = autorun;
+    </script>
+</body>
+
+</html>
