@@ -23,20 +23,7 @@
         <h1 style="text-align:center"> <a href="jb.html">Stage2</a> </h1>
     </div>
     <script type="text/javascript">
-    function enableJB()
-    {
-        document.cookie = "eulaAree";
-        history.go(0);
-    }
-
     function autorun()
-    {
-        if (document.cookie.indexOf("eulaAree") > -1)
-        {
-            document.getElementById('jbDiv').style.display = "block";
-            document.getElementById('warningDiv').style.display = "none";
-        }
-    }
     if (document.addEventListener) document.addEventListener("DOMContentLoaded",
         autorun, false);
     else if (document.attachEvent) document.attachEvent("onreadystatechange",
