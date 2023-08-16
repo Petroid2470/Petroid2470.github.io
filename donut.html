@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  pre {
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin: 0;
+    padding: 1em;
+  }
+</style>
+</head>
+<body>
+<pre id="donut"></pre>
+
+<script>
+const donutElem = document.getElementById("donut");
+const cols = 150;
+const rows = 50;
+const A = 1;
+const B = 1;
+const R1 = 1;
+const R2 = 2;
+const K2 = 5;
+const K1 = cols * K2 * 3 / (8 * (R1 + R2));
+
+let frame = 0;
+
+function render() {
+  const output = [];
+  
+  for (let j = 0; j < rows; j++) {
+    let line = "";
+    for (let i = 0; i < cols; i++) {
+      const phi = i / (cols - 1) * 2 * Math.PI;
+      const theta = j / (rows - 1) * Math.PI;
+      
+      const costheta = Math.cos(theta);
+      const sintheta = Math.sin(theta);
+      const cosphi = Math.cos(phi);
+      const sinphi = Math.sin(phi);
+      
+      const circlex = R2 + R1 * costheta;
+      const circley = R1 * sintheta;
+      
+      const x = circlex * (cosphi * costheta - sinphi * sintheta) - circley * cosphi * sintheta;
+      const y = circlex * (sinphi * costheta + cosphi * sintheta) + circley * sinphi * sintheta;
+      const z = K2 + circlex * cosphi * costheta + circley * sinphi * costheta;
+      
+      const xp = Math.floor(cols / 2 + K1 * x / z);
+      const yp = Math.floor(rows / 2 - K1 * y / z);
+      
+      if (xp >= 0 && xp < cols && yp >= 0 && yp < rows) {
+        line += "█";
+      } else {
+        line += " ";
+      }
+    }
+    output.push(line);
+  }
+  
+  donutElem.textContent = output.join("\n");
+}
+
+function animate() {
+  frame += 0.1;
+  const sineFrame = Math.sin(frame);
+  const cosineFrame = Math.cos(frame);
+  
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      const phi = i / (cols - 1) * 2 * Math.PI;
+      const theta = j / (rows - 1) * Math.PI;
+      
+      const costheta = Math.cos(theta);
+      const sintheta = Math.sin(theta);
+      const cosphi = Math.cos(phi + sineFrame);
+      const sinphi = Math.sin(phi + sineFrame);
+      
+      const circlex = R2 + R1 * costheta;
+      const circley = R1 * sintheta;
+      
+      const x = circlex * (cosphi * costheta - sinphi * sintheta) - circley * cosphi * sintheta;
+      const y = circlex * (sinphi * costheta + cosphi * sintheta) + circley * sinphi * sintheta;
+      const z = K2 + circlex * cosphi * costheta + circley * sinphi * costheta;
+      
+      const xp = Math.floor(cols / 2 + K1 * x / z);
+      const yp = Math.floor(rows / 2 - K1 * y / z);
+      
+      if (xp >= 0 && xp < cols && yp >= 0 && yp < rows) {
+        donutElem.textContent = "█";
+        donutElem.style.transform = `rotateX(${sineFrame}rad) rotateY(${cosineFrame}rad)`;
+      }
+    }
+  }
+  
+  requestAnimationFrame(animate);
+}
+
+render();
+animate();
+</script>
+</body>
+</html>
